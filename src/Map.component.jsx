@@ -47,10 +47,10 @@ export class MapContainer extends Component {
             return (<Marker
               key={index}
               onClick={this.onMarkerClick}
-              name={place.label}
+              name={place.name}
               position={{
-                lat: place.lat,
-                lng: place.lng
+                lat: place.latitude,
+                lng: place.longitude
               }}
             />);
           })
@@ -73,13 +73,13 @@ const mapStateToProps = (state) => {
   let places;
   switch (state.filters.currentRule) {
     case "greater-than":
-      places = state.places.data.filter(place => place.score >= state.filters.ratingLevel);
+      places = state.places.data.filter(place => place.ratingValue >= state.filters.ratingLevel);
       break;
     case "equal-to":
-      places = state.places.data.filter(place => place.score == state.filters.ratingLevel);
+      places = state.places.data.filter(place => place.ratingValue == state.filters.ratingLevel);
       break;
     case "less-than":
-      places = state.places.data.filter(place => place.score <= state.filters.ratingLevel);
+      places = state.places.data.filter(place => place.ratingValue <= state.filters.ratingLevel);
       break;
     default:
       places = state.places.data;
