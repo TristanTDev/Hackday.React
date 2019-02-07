@@ -1,6 +1,7 @@
-export const initialiseUsers = (users) => {
+const initialiseUsers = (users) => {
   return {
     type: "INIT_USERS",
     users
   }
 }
+export default initialiseUsers;

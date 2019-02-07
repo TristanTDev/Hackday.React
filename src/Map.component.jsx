@@ -64,7 +64,7 @@ export class MapContainer extends Component {
             <h4>{this.state.selectedPlace.name}</h4>
           </div>
         </InfoWindow>
-      </Map >
+      </Map>
     );
   }
 }

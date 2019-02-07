@@ -1,15 +1,24 @@
 const initState = {
-  "data": [
-  ]
+    data: [
+        {
+            name: "Blank",
+            ratingValue: 1,
+            latitude: 50,
+            longitude: 2
+        }
+    ]
 };
 
-const filterReducer = (state = initState, action) => {
-  switch (action.type) {
-    case "INIT_USERS":
-      return { ...state, data: data };
-  }
+const placesReducer = (state = initState, action) => {
 
-  return state;
+    switch (action.type) {
+        case "INIT_USERS":
+          console.log(action);
+
+          return {...state, data: action.users};
+    }
+
+    return state;
 }
 
-export default filterReducer;
+export default placesReducer;

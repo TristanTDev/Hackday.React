@@ -3,11 +3,12 @@ import './App.css';
 import MapComponent from './Map.component';
 import FilterComponent from './components/Filter.component'
 import axios from 'axios'
-import initialiseUsers from './store/actions/'
+import initialiseUsers from './store/actions/places.action'
+import {connect} from 'react-redux'
 
 class App extends Component {
   componentDidMount() {
-    axios.get("localhost:3001/user/5b21a5d7588b40be612798d4").then(response => {
+    axios.get("http://localhost:8080/establishments").then(response => {
       this.props.addUsers(response.data);
     });
   }
